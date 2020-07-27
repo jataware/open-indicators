@@ -20,7 +20,7 @@ This repository contains resources that provide an end-to-end capability to:
 
 Open data has been demonstrated to be a useful input to modeling. For example, researchers at University of Oulu, University of Melbourne, and Harokopio University of Athens demonstrated the viability of using Google Trends for modeling refugee movement in their paper [Correlating Refugee Border Crossings with Internet Search Data](http://jultika.oulu.fi/files/nbnfi-fe201901222715.pdf).
 
-There are two models in this repository for gathering open-source data: Google Trends and News Article Search. Google Trends searches for keywords and returns trend data for a specific location and News Article Search provides an interface to develop and run news queries for concepts and keywords of interest for user-defined geographical areas.  For more information click: [Google Trends](https://github.com/jataware/Open_Indicators/tree/master/google-trends) or [News Article Search](https://github.com/jataware/Open_Indicators/tree/master/news-article-search).
+There are two models in this repository for gathering open-source data: Google Trends and News Article Search. Google Trends searches for keywords and returns trend data for a specific location and News Article Search provides an interface to develop and run news queries for concepts and keywords of interest for user-defined geographical areas.  For more information click: [Google Trends](https://github.com/jataware/open_-indicators/tree/master/google-trends) or [News Article Search](https://github.com/jataware/open-indicators/tree/master/news-article-search).
 
 
 ## Quick Start:
@@ -31,7 +31,7 @@ There are two models in this repository for gathering open-source data: Google T
 
 #### General Start:
 
-1. Clone the [Open_Indicators](https://github.com/jataware/open-indicators) repository to `your/local/folder`.
+1. Clone the [open-indicators](https://github.com/jataware/open-indicators) repository to `your/local/folder`.
 2. run `cd your/local/folder/open-indicators/news-article-search && pip install -r requirements.txt`
 3. Clone the [Datamart-Integration](https://github.com/WorldModelers/Datamart-Integration) repository to `your/local/folder`.
 4. run `cd your/local/folder/Datamart-Integration/verify_and_register && pip install -r requirements.txt`
