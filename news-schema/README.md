@@ -22,4 +22,9 @@ The news-schema script transforms the .json file from the News Article Search in
           country: United States
 
 5. run `python3 news-csv.py --news=news/results.json --yaml=news/user_search.yaml --output=news/results.csv --type=False`
+
+      - `--type=False` a dummy feauture `article_value` is created to support the qualifier assignments of: url, title, and text data. For datasets with many features this reduces redunancy of data and can significantly reduce the size of the file.
+
+      - `--type=True` Each feature in the dataset is assigned the url, title, and text as a qualifier. This allows for direct assignment of the qualifiers to a feature, but is also redundant and can lead to exceptioanlly large .csv files. <i>Not recommended</i> for datasets with more than a few features.
+      
 6. Your file for registration will be in the ../news folder.
