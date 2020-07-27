@@ -43,21 +43,20 @@ There are two models in this repository for gathering open-source data: Google T
 
 #### News Article Search:
 
-1. run `cd your/local/folder/Open_Indicators/news-article-search/`
-2. Create user-defined .yaml with webapp and move downloaded file to: `cd your/local/folder/Open_Indicators/news-article-search/`
+1. run `cd your/local/folder/open-indicators/news-article-search/`
+2. Create user-defined .yaml with webapp and move downloaded file to: `cd your/local/folder/open-indicators/news-article-search/`
 3. Update the `config.ini` file.
 4. Update your geo-polical .csv.
-5. Download new NordVPN servers or use the examples at `Open_Indicators/resources/ovpn_tcp/`. For either method, the server files need to be moved to: `Open_Indicators/news-article-search/resources/ovpn_tcp/` and delete the `TEST` file.
-6. Run News Article Search. While it depends on your search parameters and size of your geo-political .csv, expect this to run for ~24 hours. You'll need to keep your computer on or run it on a remote server and detach the run from your local machine (such as with screenrc).
+5. Run News Article Search. While it depends on your search parameters and size of your geo-political .csv, expect this to run for ~24 hours. You'll need to keep your computer on or run it on a remote server and detach the run from your local machine (such as with screenrc).
 
- `python3 src/main.py -r=results.json -vpn_name=vpn -vpn_port=8118 -geo=geo/geo.csv -defs=user_search.yaml`
+ `python3 src/main.py -r=results.json -geo=geo/geo.csv -defs=user_search.yaml`
 
 #### Curate News Results:
 To register the News Article Search results, the `results.json` file needs to be transformed to a schema-compliant .csv:
 
-1. run `cd your/local/folder/Open_Indicators/news-schema/`
-2. Copy your `user_search.yaml` (from the webapp UI) to `your/local/folder/Open_Indicators/news-schema/news/`
-3. Copy your `results.json` (from the News Article Search) to `your/local/folder/Open_Indicators/news-schema/news/`
+1. run `cd your/local/folder/open-indicators/news-schema/`
+2. Copy your `user_search.yaml` (from the webapp UI) to `your/local/folder/open-indicators/news-schema/news/`
+3. Copy your `results.json` (from the News Article Search) to `your/local/folder/open-indicators/news-schema/news/`
 4. You must add metadata to the yaml file.  Cut and paste the snippet below into your yaml file, update the values, and save.
 
         admin:
