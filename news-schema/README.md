@@ -22,5 +22,4 @@ The news-schema script transforms the .json file from the News Article Search in
           country: United States
 
 5. run `python3 news-csv.py --news=news/results.json --yaml=news/user_search.yaml --output=news/results.csv --type=False`
-6. Your file for registration will be in the ../news folder. 
-```
+6. Your file for registration will be in the ../news folder.
