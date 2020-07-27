@@ -18,7 +18,7 @@ This repository houses files to run a focused, user-defined search of on-line ne
 ## Overview
 News Article Search scours news-related websites searching for user-defined events (concepts) and associated terms of interest for that event (target variables). The program returns a `.json` tagged with user-defined data extractions from the articles' text. Extraction techniques include regular expression matching and natural language processing. Below is an overview:  
 
-![Image of sentence](https://github.com/jataware/Open_Indicators/blob/master/news-article-search/images/diagram.png)
+![Image of sentence](https://github.com/jataware/open-indicators/blob/master/news-article-search/images/diagram.png)
   
   - Concept Variable(s): The main topical event for which the user is searching. The user MUST define a primary concept and MAY add alternative concepts. For example, the primary concept could be "COVID" with alternates "COVID-19" and "SARS-COV-2".
   	
@@ -26,7 +26,7 @@ News Article Search scours news-related websites searching for user-defined even
 	
 - Query expander: The program generates query combinations that are expanded with a fixed concept, individually-grouped target variable sets, which are then appended to each geopolitical admin-level in the user-selected csv file. 
 
-![Image of queries](https://github.com/jataware/Open_Indicators/blob/master/news-article-search/images/queries.png)
+![Image of queries](https://github.com/jataware/open-indicators/blob/master/news-article-search/images/queries.png)
 	
 - Open News index: focused search of news websites with expanded queries. At a minumum the text, title, date, and url of the news article are returned.  Additional data provided depends on the user's search preferences.
 	
@@ -35,7 +35,7 @@ News Article Search scours news-related websites searching for user-defined even
 ### Extraction Options
 Below illustrates the options available to the user while extracting data from news articles. For a given search either one or both methods can be utilized.
 
-![Image of NLP-REGEX](https://github.com/jataware/Open_Indicators/blob/master/news-article-search/images/nllpregex.png)
+![Image of NLP-REGEX](https://github.com/jataware/open-indicators/blob/master/news-article-search/images/nllpregex.png)
 
   - REGEX: regular expresssion matching with two options; see `User Interface` for more detail. Extracts either frequency counts for a given target variable or quantitative data associated with the target.
   - NLP: natural langauge processing. See `NLP` for more detail.
@@ -49,7 +49,7 @@ Below illustrates the options available to the user while extracting data from n
   - Below is an example of how our NLP extractor parses a sentence into various part of speech.  Notice that the NOUN (businesses) is a direct object (DOBJ) of the verb (reopen).  Using Odinson, sentence structures matching your verb-object pairings are extracted and returned.
 
 <p align="center">
-<img src="https://github.com/jataware/Open_Indicators/blob/master/news-article-search/images/sentenceCircle.png" alt="drawing" width="900"/>
+<img src="https://github.com/jataware/open-indicators/blob/master/news-article-search/images/sentenceCircle.png" alt="drawing" width="900"/>
 </p>
 
 
@@ -59,8 +59,8 @@ To build the yaml file with all required search parameters, a webapp can be depl
 
 Local deployment:
 
-  1. Clone the Open_Indicators repository to /your/local/folder.
-  2. run `cd /your/local/folder/Open_Indicators/news-article-search/`
+  1. Clone the open-indicators repository to /your/local/folder.
+  2. run `cd /your/local/folder/open-indicators/news-article-search/`
   3. run `pip install -r requirements.txt`
   4. run `python3 webapp/app.py`
   5. Open web browser, go to: `localhost:5000`
@@ -77,14 +77,14 @@ Remote connection:
 
 #### Start:
 
- <p align="center"><img src="https://github.com/jataware/Open_Indicators/blob/master/news-article-search/images/start.png" alt="drawing" width="700"/></p>
+ <p align="center"><img src="https://github.com/jataware/open-indicators/blob/master/news-article-search/images/start.png" alt="drawing" width="700"/></p>
 
 Click the `Build your search` button to start. There is a link back to this repository (GitHub Repo) for reference and at any time the build can be started anew by clicking `Refresh your search`
 
 
 #### Filename and Concept Definition:
 
- <p align="center"><img src="https://github.com/jataware/Open_Indicators/blob/master/news-article-search/images/FILE.png" alt="drawing" width="400"/></p>
+ <p align="center"><img src="https://github.com/jataware/open-indicators/blob/master/news-article-search/images/FILE.png" alt="drawing" width="400"/></p>
 	
   -  Enter your desired filename; this will be the name of the file that is downloaded to your computer.
   
@@ -93,7 +93,7 @@ Click the `Build your search` button to start. There is a link back to this repo
 #### Exact Match (REGEX matching): Exact Search section allows you to add target variables that will be extracted via the regular expression techniques discussed above.
 
   <p align="center">
-  <img src="https://github.com/jataware/Open_Indicators/blob/master/news-article-search/images/EXACT.png" alt="drawing" width="400"/>
+  <img src="https://github.com/jataware/open-indicators/blob/master/news-article-search/images/EXACT.png" alt="drawing" width="400"/>
   </p>	
 	
   - Enter a descriptive column label that describes your target variables; this label will 'hold' the regular expression results and you will access this label for post-processing analysis.
@@ -109,7 +109,7 @@ Click the `Build your search` button to start. There is a link back to this repo
 #### Semantic Match (NLP): Semantic Search section allows you to add verb-object pairings that will be extracted via the NLP technique discussed above.
 
   <p align="center">
-  <img src="https://github.com/jataware/Open_Indicators/blob/master/news-article-search/images/NLP.png" alt="drawing" width="400"/>
+  <img src="https://github.com/jataware/open-indicators/blob/master/news-article-search/images/NLP.png" alt="drawing" width="400"/>
   </p>	
 	
   - Enter a descriptive column label that describes your target variables; this label will 'hold' the regular expression results and you will access this label for post-processing analysis
@@ -175,10 +175,10 @@ Config Options:
   3. `-defs`: the YAML execution definition file you wish to use
 
 ### Running the script
-1. Clone the Open-Indicators repository to your local machine (example:`your/local/folder/`)
-2. Open a Terminal window and navigate to your folder (`cd your/local/folder/Open-Indicators/news-article-search`)
+1. Clone the open-indicators repository to your local machine (example:`your/local/folder/`)
+2. Open a Terminal window and navigate to your folder (`cd your/local/folder/open-indicators/news-article-search`)
 3. Type `$ ls` and confirm all required files are listed in your workding directory.
-4. Move your geo-political .csv file to: `your/local/folder/Open-Indicators/news-article-search/geo`
+4. Move your geo-political .csv file to: `your/local/folder/open-indicators/news-article-search/geo`
 5. Run the script, for example:
 	
 	`$ python3 src/main.py -r=results.json -geo=geo/us_city_state.csv -defs=user_search.yaml`
