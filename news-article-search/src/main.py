@@ -29,7 +29,7 @@ import sys
 import os
 
 ################### COMMAND LINE RUN
-# $ python3 src/main.py -r=results.json -geo=geo/test.csv -defs=user_search.yaml
+# $ python3 src/main.py -r=results/results.json -geo=geo/test.csv -defs=user_search.yaml
 
 ################### COMMAND LINE ARGS
 parser = argparse.ArgumentParser(description='Parse News for a given query')
