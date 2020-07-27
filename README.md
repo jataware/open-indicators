@@ -31,14 +31,14 @@ There are two models in this repository for gathering open-source data: Google T
 
 #### General Start:
 
-1. Clone the [Open_Indicators](https://github.com/jataware/Open_Indicators) repository to `your/local/folder`.
-2. run `cd your/local/folder/Open_Indicators/news-article-search && pip install -r requirements.txt`
+1. Clone the [Open_Indicators](https://github.com/jataware/open-indicators) repository to `your/local/folder`.
+2. run `cd your/local/folder/open-indicators/news-article-search && pip install -r requirements.txt`
 3. Clone the [Datamart-Integration](https://github.com/WorldModelers/Datamart-Integration) repository to `your/local/folder`.
 4. run `cd your/local/folder/Datamart-Integration/verify_and_register && pip install -r requirements.txt`
 
 #### Google Trends:
 
-1. run `cd Open_Indicators/google-trends/`
+1. run `cd open-indicators/google-trends/`
 2. run `python trends.py --term=teff --geo=ET-AA --output=teff.csv`
 
 #### News Article Search:
