@@ -1,0 +1,19 @@
+rules:
+- name: close_school_decl
+  type: event
+  pattern: |
+    trigger = [norm=/close.*|shutter.*|delay.*/]
+    subject? = >nsubj|>agent []
+    object = >dobj [lemma=/school|campus/]
+- name: close_school_passive
+  type: event
+  pattern: |
+    trigger = [norm=/close.*|shutter.*|delay.*/ & tag=VBN]
+    subject? = >nmod_by|>nmod_agent []
+    object = >nsubjpass [lemma=/school|campus/]
+- name: close_school_prepNominalization
+  type: event
+  pattern: |-
+    trigger = [norm=/close.*|shutter.*|delay.*/ & tag=NN]
+    subject? = >nmod_by|>nmod_agent []
+    object = >nmod_of [lemma=/school|campus/]

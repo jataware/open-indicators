@@ -1,0 +1,17 @@
+concept:
+- test
+target_variables:
+  ease_policy:
+    inTitle: false
+    matchType: verb-object
+    objects:
+    - lockdown
+    outputFormat: extraction
+    verbs:
+    - ease
+  masks:
+    inTitle: false
+    matchType: string
+    outputFormat: frequency
+    targets:
+    - n95

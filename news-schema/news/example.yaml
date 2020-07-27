@@ -1,0 +1,26 @@
+admin:
+  adminX: admin_1
+  adminY: admin_3
+  country: United States
+concept:
+- covid
+- coronavirus
+target_variables:
+  close_school:
+    inTitle: false
+    matchType: verb-object
+    objects:
+    - school
+    - campus
+    outputFormat: extraction
+    verbs:
+    - close
+    - shutter
+    - delay
+  school_rgx:
+    inTitle: false
+    matchType: string
+    outputFormat: frequency
+    targets:
+    - close
+    - delay

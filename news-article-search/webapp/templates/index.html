@@ -1,0 +1,438 @@
+<!doctype html>
+<html lang="en">
+	<head>
+	  <title>Search Definition</title>
+
+	  <!-- CSS only -->
+	  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+	  <!-- JS, Popper.js, and jQuery -->
+	  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-serialize-object/2.5.0/jquery.serialize-object.min.js"></script>
+
+	  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+	  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+	  <style type="text/css">
+	    .container {
+	      width: 4000px;
+	    }
+
+	    .jumbotron {
+	      padding: 1rem 1rem;
+	      border: 2px solid black;
+	      background-color: #e8e9ed;
+	      border-radius: 18px;
+	    }
+
+	    #main-form {
+	      border-radius: 18px;
+	      background-color: #e8e9ed;
+	      border: 2px solid black;
+	      padding-top: 15px;
+	      padding-right: 15px;
+	      padding-left: 15px;
+	      padding-bottom: 35px;
+	    }
+
+	    #centerIT {
+	      text-align: center;
+	      font-size: 115%;
+	    }
+
+	    #fileIT {
+	      padding-right: 50px;
+	      padding-left: 50px;
+
+	      border-radius: 18px;
+	      background-color: #c8c8e3;
+	      border: 1px solid black;
+	      display: inline-block;
+	    }
+
+	    #instructions_wrap {
+	      padding-top: 5px;
+	      padding-right: 50px;
+	      padding-left: 50px;
+	      padding-bottom: 5px;
+
+	      border-radius: 18px;
+	      background-color: #007bff;
+	      color: white;
+	      border: 1px solid black;
+	      display: inline-block;
+	      font-size: 115%;
+	    }
+
+	    #regex-container {
+	      border-radius: 10px;
+	      width: 525px;
+	      float: left;
+	      border: 1px solid black;
+	      padding-top: 10px;
+	      padding-right: 6px;
+	      padding-bottom: 6px;
+	      padding-left: 25px;
+	      background-color: #c8c8e3;
+	    }
+
+	    #plus-btn-regex {
+	      position: relative;
+	      top: 50%;
+	      left: 4%;
+	      width: 450px;
+	    }
+
+	    #submit_format {
+	      text-align: center;
+	    }
+
+	    #form-submit {
+	      background-color: #07a832;
+	      border: 1px solid black;
+	      position: relative;
+	      top: 50%;
+	      left: 0%;
+	      width: 800px;
+	      display: inline-block;
+	    }
+
+	    #odin-container {
+	      border-radius: 10px;
+	      border: 1px solid black;
+	      width: 525px;
+	      float: right;
+	      padding-top: 10px;
+	      padding-bottom: 6px;
+	      padding-left: 12px;
+	      background-color: #c8c8e3;
+	    }
+
+	    #plus-btn-odin {
+	      position: relative;
+	      top: 50%;
+	      left: 6%;
+	      width: 450px;
+	    }
+
+	    #instructions-regex {
+	      position: relative;
+	      top: 50%;
+	      left: 6%;
+	      width: 450px;
+	    }
+
+	    #instructions-odin {
+	      position: relative;
+	      top: 50%;
+	      left: 4%;
+	      width: 450px;
+	    }
+
+	    #regex {
+	      width: 525px;
+	      float: left;
+	      padding-right: 50px;
+	    }
+
+	    .form-check-input {
+	      position: absolute;
+	      margin-top: 0.3rem;
+	      margin-left: 0rem;
+	      padding-left: 20px;
+	    }
+
+	    .form-check-label {
+	      padding-left: 20px;
+	      margin-bottom: 0;
+	    }
+
+	    #odinsRaven {
+	      width: 525px;
+	      float: left;
+	      padding-right: 30px;
+	      padding-left: 15px;
+	    }
+
+	    #instructions {
+	      background-color: #c8c8e3;
+	      border-radius: 10px;
+	      text-align: center;
+	    }
+
+	  </style>
+	</head>
+
+<body style="margin-top: 50px">
+  <title> A Jataware Product</title>
+
+  <div class='container' id="container-format">
+    <div class="jumbotron">
+
+      <h6>
+        <a href="https://www.jataware.com/" style="color: darkblue">Jataware Home &emsp;</a>
+        <a href="https://github.com/jataware/News-Article-Search" style="color: darkblue">GitHub Repo</a>
+      </h6>
+
+      <h2 class="display-5"><b>News Article Search</b></h2>
+      <p class="lead" color="darkblue"><b>A utility for defining complex news queries</b></p>
+      <hr class="my-4">
+      <a class="btn btn-primary btn-lg" href="#" role="button" id="build-btn">Build your search</a>&emsp;&emsp;
+      <a class="btn btn-primary btn-lg" href="#" role="button" id="refreshIT">Refresh your search</a>
+    </div>
+
+    <form id="main-form" action="javascript:alert( 'success!' );" style="visibility: hidden">
+      <div id="centerIT">
+
+        <div class="form-group" id="fileIT"><br>
+          <label for="yaml_filename"><b>What should we call your search? </b><br> Enter a descriptive filename with a .yaml extension</label>
+          <input class="form-control" style="width:450px" type="text" name="header[yaml_filename]" id="yaml_filename" placeholder="example_filename.yaml"><br>
+          <label for="concept"><b>What are your concept(s):</b> <br> Include terms related to your <u>main</u> search topic</label><br>
+          <textarea class="form-control" style="width:450px" id="concept" name="header[concept]" rows="3" placeholder="Enter one term per row"></textarea><br>
+        </div>
+
+        <div id="instructions_wrap">
+          <h6 id="instructions" style="background-color: #007bff;padding-top:10px"><b>Fill out the form(s) below to build your search criteria.</b> <br><br> <b>At the bottom you can add additional search queries by selecting the + button</b><br><br><b></b>After you have added all your search criteria, select <u><b>DOWNLOAD YAML FILE</b></u></h6>
+        </div>
+
+      </div><br>
+
+      <div class="row" id="inner-form">
+        <div class="col-sm" id="wrapper" name="wrapper">
+          <div class="container-forms" name="regex-container" id="regex-container">
+            <button id="instructions-regex" type="button" class="btn btn-primary">Exact Match: Click for help</button><br><br>
+            <div class="form-group" id="regex">
+
+              <!-- COLUMN HEADER -->
+              <div id="column_out_regex">
+                <label for="column_Label"><b>Give your "Exact Match" term a label.</b><br> This label will be the column header on your output file:</label>
+                <input class="form-control" type="text" onfocus="this.value=''" id="column_label" name="regex[0][column_label]" placeholder="Example: Fly_Navy"><br>
+              </div>
+
+              <!-- FREQ QUANTITY -->
+              <div id="outputFormat" class="form-check">
+                <label for="regex_radio" style="padding-left: 0px"><b>Do you want to <u>COUNT</u> instances of your term or capture the <u>QUANTITY</u> that modifies your term?</b></label><br>
+                <input class="form-check-input" type="radio" name="regex[0][outputFormat]" id="frequency_DD" value="frequency" checked>
+                <label class="form-check-label" for="frequency_DD">Count</label>
+                <br>
+                <input class="form-check-input" type="radio" name="regex[0][outputFormat]" id="quantity_DD" value="quantity">
+                <label class="form-check-label" for="quantity_DD">Quantity</label><br>
+              </div>
+
+              <!-- inTITLE -->
+              <div id="inTitle" class="form-check"><br>
+                <label for="inTitle_DD_reg"><b>Should your selected geopolitical admin-level be required to be in the title of the article?</b></label><br>
+                <input class="form-check-input" type="radio" name="regex[0][inTitle]" id="inTitle_True_reg" value="True">
+                <label class="form-check-label" for="inTitle_True_reg">Yes</label><br>
+                <input class="form-check-input" type="radio" name="regex[0][inTitle]" id="inTitle_False_reg" value="False" checked>
+                <label class="form-check-label" for="inTitle_False_reg">No</label><br>
+              </div>
+
+              <!-- TGT VARS -->
+              <div id="tgtvars" class="form-check"><br>
+                <label for="target_variables"><b>Enter the terms you would like to search for:</b></label><br>
+                <textarea class="form-control" id="target_variables" onfocus="this.value=''" rows="4" name="regex[0][targets]" placeholder="Enter one term per row. Do not add a space after your entry"></textarea><br>
+              </div>
+
+              <div id="add_regex">
+                <hr style="height:3.55px; visibility:hidden;" />
+                <button id="plus-btn-regex" type="button" class="btn btn-primary">+ Exact Match</button><br>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm">
+          <div class="container-forms" name="odin-container" id="odin-container">
+            <button id="instructions-odin" type="button" class="btn btn-primary">Semantic Match: Click for help</button><br><br>
+            <div class="form-group" id="odinsRaven">
+
+              <!-- COLUMN HEADER -->
+              <div id="column_out_odin">
+                <label for="column_Label"><b>Give your 'Semantic Match' term a label. </b><br> This label will be the column header on your output file:</label>
+                <input class="form-control" type="text" onfocus="this.value=''" id="column_label_odin" name="odin[0][odin_column_label]" placeholder="Example: Fly_Navy"><br>
+              </div>
+
+              <!-- inTITLE -->
+              <div id="inTitle_odin" class="form-check">
+                <label for="inTitle_DD_odin"><b>Should your selected geopolitical admin-level be required to be in the title of the article?</b></label><br>
+                <input class="form-check-input" type="radio" name="odin[0][inTitle]" id="inTitle_True_odin" value="True">
+                <label class="form-check-label" for="inTitle_True_odin">Yes</label><br>
+                <input class="form-check-input" type="radio" name="odin[0][inTitle]" id="inTitle_False_odin" value="False" checked>
+                <label class="form-check-label" for="inTitle_False_odin">No</label><br>
+              </div>
+
+              <!-- VERBS -->
+              <div id="verbs_div" class="form-check"><br>
+                <label for="verbs"><b>Enter your verb(s):</b></label><br>
+                <textarea class="form-control" id="verbs" onfocus="this.value=''" rows="4" name="odin[0][verbs]" placeholder="Enter one term per row. Do not add a space after your entry"></textarea><br>
+              </div>
+
+              <!-- OBJECT -->
+              <div id="objects_div" class="form-check">
+                <label for="objects"><b>Enter your object(s):</b></label><br>
+                <textarea class="form-control" id="objects" onfocus="this.value=''" rows="4" name="odin[0][objects]" placeholder="Enter one term per row. Do not add a space after your entry"></textarea><br>
+              </div>
+
+              <!-- ODIN ADD BUTTON -->
+              <div id="add_odin">
+                <button id="plus-btn-odin" type="button" class="btn btn-primary">+ Semantic Match</button><br>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="submit_format">
+        <br>
+        <button id="form-submit" type="submit" class="btn btn-primary"><b>DOWNLOAD YAML FILE</b></button><br>
+      </div><br>
+    </form>
+  </div>
+</body>
+
+
+
+<script>
+  $(document).ready(function() {
+
+    /* SHOW FILENAME AND FIRST ADD Button */
+    $("#build-btn").click(function() {
+      $("#main-form").css("visibility", "visible");
+    });
+
+    $("#refreshIT").click(function() {
+      location.reload(true);
+    });
+
+    /* SHOW either REGEX or ODINSON options for a new entry*/
+
+    var counter_regex = 1;
+    $("#plus-btn-regex").click(function() {
+
+      var $regex = $("#regex").clone(true, true);
+      var $col = $("#column_out_regex").clone(true, true);
+      var $outputFormat = $("#outputFormat").clone(true, true);
+      var $inTitle = $("#inTitle").clone(true, true);
+      var $tgtvars = $("#tgtvars").clone(true, true);
+      var $add_regex = $("#add_regex").clone(true, true);
+
+      /* COLUMN LABEL*/
+      var new_id_regex = "regex" + counter_regex;
+      var new_name_column_label = 'regex[' + (counter_regex) + ']' + '[column_label]';
+      $col.attr('id', new_id_regex);
+      $col.find('input').attr("name", new_name_column_label);
+
+      /* FREQ/QTY RADIO */
+      var new_id_outputFormat = "outputFormat" + counter_regex;
+      var new_name_outputFormat = 'regex[' + (counter_regex) + ']' + '[outputFormat]';
+      $outputFormat.attr('id', new_id_outputFormat);
+      $outputFormat.find('input').attr("name", new_name_outputFormat);
+
+      /* INTITLE RADIO */
+      var new_id_inTitle = "inTitle" + counter_regex;
+      var new_name_inTitle = 'regex[' + (counter_regex) + ']' + '[inTitle]';
+      $inTitle.attr('id', new_id_inTitle);
+      $inTitle.find('input').attr("name", new_name_inTitle);
+
+      /* TGT VARS TEXT AREA*/
+      var new_id_tgtvars = "target_variables" + counter_regex;
+      var new_name_tgtvars = 'regex[' + (counter_regex) + ']' + '[targets]';
+      $tgtvars.attr('id', new_id_tgtvars);
+      $tgtvars.find('textarea').attr("name", new_name_tgtvars);
+
+      counter_regex++;
+
+      /* ADD IT ALL TOGETHER */
+      var afterit = "#regex"
+      $add_regex.insertAfter($(afterit));
+      $tgtvars.insertAfter($(afterit));
+      $inTitle.insertAfter($(afterit));
+      $outputFormat.insertAfter($(afterit));
+      $col.insertAfter($(afterit));
+
+    });
+
+    var counter_odin = 1;
+    $("#plus-btn-odin").click(function() {
+      /* Clone the div */
+      var $odin = $("#odinsRaven").clone(true, true);
+      var $col = $("#column_out_odin").clone(true, true);
+      var $inTitle = $("#inTitle_odin").clone(true, true);
+      var $verbs = $("#verbs_div").clone(true, true);
+      var $objects = $("#objects_div").clone(true, true);
+      var $add_odin = $("#add_odin").clone(true, true);
+
+      /* COLUMN LABEL*/
+      var new_id_odin = "odin" + counter_odin;
+      var new_name_column_label = 'odin[' + (counter_odin) + ']' + '[odin_column_label]';
+
+      $col.attr('id', new_id_odin);
+      $col.find('input').attr("name", new_name_column_label);
+
+      /* INTITLE RADIO */
+      var new_id_inTitle = "inTitle_odin" + counter_odin;
+      var new_name_inTitle = 'odin[' + (counter_odin) + ']' + '[inTitle]';
+      $inTitle.attr('id', new_id_inTitle);
+      $inTitle.find('input').attr("name", new_name_inTitle);
+
+      /* VERB TEXT AREA*/
+      var new_id_verbs = "verbs" + counter_odin;
+      var new_name_verbs = 'odin[' + (counter_odin) + ']' + '[verbs]';
+      $verbs.attr('id', new_id_verbs);
+      $verbs.find('textarea').attr("name", new_name_verbs);
+
+      /* OBJECT TEXT AREA*/
+      var new_id_objects = "objects" + counter_odin;
+      var new_name_objects = 'odin[' + (counter_odin) + ']' + '[objects]';
+      $objects.attr('id', new_id_objects);
+      $objects.find('textarea').attr("name", new_name_objects);
+
+      counter_odin++;
+
+      /* ADD IT ALL TOGETHER */
+      var afterit = "#odinsRaven"
+      $add_odin.insertAfter($(afterit));
+      $objects.insertAfter($(afterit));
+      $verbs.insertAfter($(afterit));
+      $inTitle.insertAfter($(afterit));
+      $col.insertAfter($(afterit));
+
+    });
+
+    /* RANDO Formatting to ensure jQuery is working*/
+    $("h2").css("color", "red");
+
+    $("#instructions-regex").click(function() {
+      alert("Exact Match uses regular expressions to search for your exact term. \n You can return the number of times your term appears in an article (Count) or capture the numerical modifier in front of your term (Quantity)\n For Title: selecting yes will require the geopolical admin level (city, state, etc.) to be in the Title of the article")
+    });
+
+    $("#instructions-odin").click(function() {
+      alert("Semantic Match uses natural langauage processing to search for grammatical structure (in this case verb-object pairings) and returns a text token related to your search. For instance, if you want to search for polices related to updated FIFA soccer regulations, you can search verb: 'amend, codify, adopt' with objects: 'GLT, goal line technology'")
+    });
+
+    $("form").on("submit", function(event) {
+        console.log($('#main-form').serializeJSON());
+        $.ajax({
+          url: '/submit',
+          type: 'POST',
+          data: JSON.stringify($('#main-form').serializeJSON()),
+          contentType: "application/json; charset=utf-8",
+          dataType: "json",
+          success: function(data) {
+            console.log(data);
+            var path = $('#main-form').serializeObject().header.yaml_filename;
+            window.location = '/static/' + path;
+            alert($('#main-form').serializeObject().header.yaml_filename + " is in your Downloads folder");
+            }
+          });
+        event.preventDefault()
+
+
+      });
+  });
+
+</script>
+
+</html>

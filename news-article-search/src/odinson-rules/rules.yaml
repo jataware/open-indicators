@@ -1,0 +1,21 @@
+rules:  
+  - name: decl
+    type: event
+    pattern: |
+       trigger = [norm=/verb.*/]
+       subject? = >nsubj|>agent []
+       object = >dobj [lemma=/object/]
+       
+  - name: passive
+    type: event
+    pattern: |
+       trigger = [norm=/verb.*/ & tag=VBN]
+       subject? = >nmod_by|>nmod_agent []
+       object = >nsubjpass [lemma=/object/]
+       
+  - name: prepNominalization
+    type: event
+    pattern: |
+       trigger = [norm=/verb.*/ & tag=NN]
+       subject? = >nmod_by|>nmod_agent []
+       object = >nmod_of [lemma=/object/]

@@ -1,0 +1,35 @@
+concept:
+- con1
+- con2
+target_variables:
+  ease_policy:
+    inTitle: false
+    matchType: verb-object
+    objects:
+    - cover
+    outputFormat: extraction
+    verbs:
+    - relax
+    - ease
+  mask:
+    inTitle: true
+    matchType: string
+    outputFormat: frequency
+    targets:
+    - mask
+    - n95
+  quratine:
+    inTitle: true
+    matchType: verb-object
+    objects:
+    - quarantine
+    outputFormat: extraction
+    verbs:
+    - mandate
+  test:
+    inTitle: true
+    matchType: integer
+    outputFormat: quantity
+    targets:
+    - tests
+    - testit
