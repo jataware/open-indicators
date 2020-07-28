@@ -50,10 +50,10 @@ There are two modules in this repository for gathering open-source data: Google 
 ### News Article Search:
 
 1. run `cd open-indicators/news-article-search/`
-2. Create user-defined .yaml with webapp and move downloaded file to: `cd open-indicators/news-article-search/`
+2. Create user-defined .yaml with webapp and move downloaded file to: `open-indicators/news-article-search/`
 3. Update the `config.ini` file.
-4. Update your geolocation `.csv` file.
-5. Run News Article Search with  `python3 src/main.py -r=results/results.json -geo=geo/geo.csv -defs=user_search.yaml`
+4. Update your geolocation `.csv` file in the `open-indicators/news-article-search/geo` directory.
+5. Run News Article Search with `python3 src/main.py -r=results/results.json -geo=geo/geo.csv -defs=user_search.yaml`
 
 > Runtime depends on your search parameters and the number of geolocations of interest in your geolocation `.csv`. Potential runtimes may exceed ~24 hours. You'll need to keep your computer on or run it on a remote server and detach the run from your local machine (such as with screenrc).
 
