@@ -1,6 +1,8 @@
 # News Article Search
 This repository houses files to run a focused, user-defined search of on-line news articles. Created by Jataware, this research effort extracts open-source data to provide timely and relevant information to modelers and data scientists.
 
+News data collection relies on the [Bing News Search API](https://azure.microsoft.com/en-us/services/cognitive-services/bing-news-search-api/). For testing purposes, we recommend establishing a trial account with this API. Your API settings should be set based on the instructions in the [Configuration section](#configuration) of this document.
+
 
 **Disclaimer**: any datasets contained in this repository have not been vetted by human experts. They should be taken as representative of events that occurred on the ground, but should not be considered authoritative sources or ground truth.
 
@@ -133,6 +135,8 @@ The user can choose what admin level to search, such as "country", "city,state" 
 This program is built with Python 3.7; non-standard package requirements can be found in the `requirements.txt` file included in the repository.
 
 ### Configuration
+
+Note that you must update the `subscription_key` in `config.ini` with your Bing News Search API key.
 
 ```
 [BING PARAMETERS]
