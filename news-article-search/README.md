@@ -1,5 +1,5 @@
 # News Article Search
-This repository houses files to run a focused, user-defined search of on-line news articles. Created by Jataware, this research effort extracts open-source data to provide timely and relevant information to modelers and data scientists.
+This repository houses files to run a focused, user-defined search of on-line news articles. Created by Jataware, this research effort extracts open-source data to provide timely and relevant information to modelers and data scientists. This module relies on the excellent University of Arizona's information extraction system, [Odinson](https://github.com/lum-ai/odinson).
 
 News data collection relies on the [Bing News Search API](https://azure.microsoft.com/en-us/services/cognitive-services/bing-news-search-api/). For testing purposes, we recommend establishing a trial account with this API. Your API settings should be set based on the instructions in the [Configuration section](#configuration) of this document.
 
