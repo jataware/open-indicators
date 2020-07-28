@@ -1,6 +1,6 @@
 # Open Indicators
 
-The goal of this project is to generate well-structured time series indicators from open data for World Modeling. 
+The goal of this project is to generate well-structured time series indicators from open data for modeling.
 
 ## Contents
 1. [Motivation](#motivation)
