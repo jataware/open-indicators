@@ -1,5 +1,15 @@
 # Open Indicators
+
 The goal of this project is to generate well-structured time series indicators from open data for World Modeling. 
+
+#### Motivation
+The motivation behind this project was our experience working with COVID-19 modelers gathering data on non-pharmaceutical interventions (NPIs) such as mandatory business/school closures, mask requirements, and social distancing requiremments. Modelers needed a way to identify where and when NPIs had been implemented at the city, county, state and country level. These modelers work with analysts who rely on search engines to find information of interest, manually annotate results, and manually store those results into spreadsheets for use in modeling workflows. 
+
+![Workflow](imgs/Open-Indicators-Workflow.png)
+<figcaption>Prior state of data collection</figcaption>
+
+#### Enter Open Indicators
+Our goal is to automate as much of this as possible:
 
 ![Architecture](imgs/architecture.png)
 
