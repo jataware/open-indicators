@@ -80,6 +80,7 @@ def no_rain(x, drought_index):
     return x*drought_index
 
 def drought_power_production(drought_index, ethiopia_min_capacity, gdf):
+    drought_index = 1-drought_index
     threshold = ethiopia_min_capacity
     total_d = gdf['Installedcapacity (MWe)']
     all_drought = [float(prod) for prod in total_d if "(" not in prod]
