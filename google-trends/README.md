@@ -33,4 +33,6 @@ You can refer to `iso-codes.csv` to identify the ISO code you wish to use. Note 
 To run Google Trends in a Docker container:
 
 1. Build a local image in your working directory with `docker build -t trends .`
-2. Run the trends.py script with your desired arguments: `docker run --rm trends --term=covid --geo=IT-72`
+2. Run the trends.py script with your desired arguments: 
+    `docker run --rm trends --term=cafe --geo=IT-72`
+3. While you can include `--output=some.csv` in the docker run line, for a generalized output file do not include the `--output` argument so the output file defaults to `trends.csv`
