@@ -26,7 +26,6 @@ def input_to_iso(country, state=None):
 
 def iso_to_epoch(iso_time):
     parsed_t = dp.parse(iso_time)
-
     return parsed_t.strftime('%s')
 
 def get_trend(term, country, state):
