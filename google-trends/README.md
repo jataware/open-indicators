@@ -22,12 +22,12 @@ python trends.py --term=teff --country=Ethiopia --state='Addis Ababa' --output=t
 
 Will yield a `.csv` file called `teff.csv` containing Google Trend information for Addis Ababa, Ethiopia:
 
-| timestamp   | iso_time    | value | description                      | country  | state       | iso2 |
-|-------------|-------------|-------|----------------------------------|----------|-------------|------|
-| 1451203200  | 2015-12-27  | 0     | Google Trends for teff for ET-AA | Ethiopia | Addis Ababa | ET   |
-| 1451808000  | 2016-01-03  | 20    | Google Trends for teff for ET-AA | Ethiopia | Addis Ababa | ET   |
-| 1452412800  | 2016-01-10  | 57    | Google Trends for teff for ET-AA | Ethiopia | Addis Ababa | ET   |
-| 1453017600  | 2016-01-17  | 20    | Google Trends for teff for ET-AA | Ethiopia | Addis Ababa | ET   |
+| timestamp   | iso_time    | value | description                      | country  | iso2 | state       |
+|-------------|-------------|-------|----------------------------------|----------|------|-------------|
+| 1451203200  | 2015-12-27  | 0     | Google Trends for teff for ET-AA | Ethiopia | ET   | Addis Ababa | 
+| 1451808000  | 2016-01-03  | 20    | Google Trends for teff for ET-AA | Ethiopia | ET   | Addis Ababa |
+| 1452412800  | 2016-01-10  | 57    | Google Trends for teff for ET-AA | Ethiopia | ET   | Addis Ababa |
+| 1453017600  | 2016-01-17  | 20    | Google Trends for teff for ET-AA | Ethiopia | ET   | Addis Ababa |
 
 Where:
 
