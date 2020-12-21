@@ -31,12 +31,13 @@ Will yield a `.csv` file called `teff.csv` containing Google Trend information f
 
 Where:
 
-  - `timestamp`: Google Trends date-time in epoch time
-  - `iso_time`: ISO-8601 date (YYYY-MM-DD)
+  - `timestamp`: Date of Google Trends data in epoch time; time of day is T08:00:00Z for all rows.
+  - `iso_time`: Date of Google Trends data in ISO-8601 (YYYY-MM-DD); time of day is T08:00:00Z for all rows.
   - `value`: a normalized score on how 'popular' your `term` is for your chosen geopolitical area versus other searches at a particular time
   - `description`: Tags data with `term` and iso2 code for country-state (if state included)
-  - `state`: State/province/woreda for Google Trends `term`; `None` if no state entered
-  - `iso2`: Country-level iso 2 abbreviation
+  - `country`: Country that Google Trends searched over for your `term`
+  - `state`: State/province/woreda that Google Trends searched over for your `term`; `None` if no state entered
+  - `iso2`: Country-level ISO 3166-1 alpha-2 abbreviation
 
 
 ## ISO Country/State Names
