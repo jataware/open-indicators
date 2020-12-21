@@ -26,22 +26,22 @@ def input_to_iso(country, state=None):
 
 def iso_to_epoch(iso_time):
     parsed_t = dp.parse(iso_time)
+
     return parsed_t.strftime('%s')
 
 def get_trend(term, country, state):
 
     geo = input_to_iso(country, state)
 
-    pytrend = TrendReq(hl='en-US', tz=0, geo=geo)
-    pytrend.build_payload(kw_list=[term])
-    trend_df = pytrend.interest_over_time()
-
     # geo can = None if the user enters invalid geo keys
     if geo:
+        pytrend = TrendReq(hl='en-US', tz=0, geo=geo)
+        pytrend.build_payload(kw_list=[term])
+        trend_df = pytrend.interest_over_time()
 
         # NO Google Trend
         if trend_df.shape[0] == 0:
-            print(f"No trend available for term:'{term}' country:'{country}' state:'{state}'\n")
+            print(f"\nNo trend available for term:'{term}' country:'{country}' state:'{state}'\n")
             return None
 
         # YES Google trend
@@ -72,7 +72,7 @@ def get_trend(term, country, state):
 
     # bad user country/state inputs
     else:
-        print(f"For country:'{country}' state:'{state}'")
+        print(f"\nFor country:'{country}' state:'{state}'")
         print("Invalid input:\n  Reference 'iso_codes.csv' for country/state names.\n  Note: Input parameters with spaces must be in quotes.\n")
         return None
 
