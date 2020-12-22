@@ -6,6 +6,9 @@ import os
 
 # Example CLI: python3 trends.py --term=election --country=Ethiopia --state='Addis Ababa' --output=election.csv
 
+# For Docker testing:
+print(os.getcwd())
+
 # Read in iso codes to build lookup dicts
 iso = pd.read_csv('iso-codes.csv')
 iso['country_code'] = iso['iso_code'].apply(lambda x: x.split('-')[0])
