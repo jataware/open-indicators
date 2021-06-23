@@ -49,4 +49,4 @@ To run Google Trends in a Docker container:
 
 1. Build a local image in your working directory with `docker build -t trends .`
 2. Run the trends.py script with your desired arguments: 
-    `docker run --rm trends --term=cafe --country=Italy --state=Campania --output=cafe.csv`
+    `docker run -v ${PWD}:/output --rm trends --term=cafe --country=Italy --state=Campania --output=/output/cafe.csv`
