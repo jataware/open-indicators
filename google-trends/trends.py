@@ -6,7 +6,7 @@ import os
 from time import time
 import numpy as np
 
-# Example CLI: python3 trends.py --term=election --country=Ethiopia --state='Addis Ababa' --output=election.csv
+# Example CLI: python3 trends.py --term='election' --country='Ethiopia' --state='Addis Ababa' --output=output.csv
 
 # For Docker testing:
 print(os.getcwd())
@@ -40,20 +40,24 @@ def iso_to_epoch(iso_time):
     return parsed_t.strftime("%s")
 
 
-def no_data(country, state, term):
+def no_data(term, country, state):
+    if country:
+        ctry = country
+    else:
+        ctry = np.nan
+    
     if state:
         admin1 = state
     else:
         admin1 = np.nan
-
-    empty_dict = {
-        "timestamp": [round(time() * 1000)],
-        "country": [country],
-        "admin1": [admin1],
-        "feature": ["trend level"],
-        "value": [np.nan],
-        "search_term": [f"{term}"],
-    }
+    
+    empty_dict = {'timestamp': [round(time()*1000)],
+                  'country': [ctry],
+                  'admin1': [admin1],
+                  'feature': ['trend level'],
+                  'value': [np.nan],
+                  'search_term':[f'{term}']
+                 }
 
     return pd.DataFrame(empty_dict)
 
@@ -71,7 +75,7 @@ def get_trend(term, country, state):
             print(
                 f"\nNo trend available for term:'{term}' country:'{country}' state:'{state}'\n"
             )
-            return no_data(country, state, term)
+            return no_data(term, country, state)
 
         # YES Google trend
         else:
@@ -118,7 +122,7 @@ def get_trend(term, country, state):
             "Invalid input:\n  Reference 'country_admin1.csv' for country/state names.\n  Note: Input parameters with spaces must be in quotes.\n"
         )
 
-        return no_data(country, state, term)
+        return no_data(term, country, state)
 
 
 if __name__ == "__main__":
@@ -152,8 +156,6 @@ if __name__ == "__main__":
     country = args.country
     state = args.state
     output = args.output
-    print(state)
-    print(type(state))
     trend = get_trend(term, country, state)
 
     if isinstance(trend, pd.DataFrame):
