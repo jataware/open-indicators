@@ -6,7 +6,7 @@ import os
 from time import time
 import numpy as np
 
-# Example CLI: python3 trends.py --term='election' --country='Ethiopia' --state='Addis Ababa' --output=output.csv
+# Example CLI: python3 trends.py --term='election' --country='Ethiopia' --admin1='Addis Ababa' --output=output.csv
 
 # For Docker testing:
 print(os.getcwd())
@@ -18,8 +18,8 @@ iso["country_code"] = iso["iso_code"].apply(lambda x: x.split("-")[0])
 # Dict of Country to iso2 code (for country only trend search):
 ctry_to_iso_d = dict(zip(iso.countryLabel, iso.country_code))
 
-# Dict of (key=country, key=state) value = Country-state iso2 code (for country and state trend search)
-state_to_iso_d = (
+# Dict of (key=country, key=admin1) value = Country-admin1 iso2 code (for country and admin1 trend search)
+admin1_to_iso_d = (
     iso.groupby("countryLabel")
     .apply(lambda x: dict(zip(x["admin1Label"], x["iso_code"])))
     .to_dict()
@@ -27,9 +27,9 @@ state_to_iso_d = (
 
 
 # convert user input to iso code:
-def input_to_iso(country, state=None):
-    if state:
-        geo = state_to_iso_d.get(country, {}).get(state, None)
+def input_to_iso(country, admin1=None):
+    if admin1:
+        geo = admin1_to_iso_d.get(country, {}).get(admin1, None)
     else:
         geo = ctry_to_iso_d.get(country, None)
     return geo
@@ -40,14 +40,14 @@ def iso_to_epoch(iso_time):
     return parsed_t.strftime("%s")
 
 
-def no_data(term, country, state):
+def no_data(term, country, admin1):
     if country:
         ctry = country
     else:
         ctry = np.nan
     
-    if state:
-        admin1 = state
+    if admin1:
+        admin1 = admin1
     else:
         admin1 = np.nan
     
@@ -62,9 +62,9 @@ def no_data(term, country, state):
     return pd.DataFrame(empty_dict)
 
 
-def get_trend(term, country, state):
+def get_trend(term, country, admin1):
 
-    geo = input_to_iso(country, state)
+    geo = input_to_iso(country, admin1)
     # geo can = None if the user enters invalid geo keys
     if geo:
         pytrend = TrendReq(hl="en-US", tz=0, geo=geo)
@@ -73,9 +73,9 @@ def get_trend(term, country, state):
 
         if trend_df.empty:
             print(
-                f"\nNo trend available for term:'{term}' country:'{country}' state:'{state}'\n"
+                f"\nNo trend available for term:'{term}' country:'{country}' admin1:'{admin1}'\n"
             )
-            return no_data(term, country, state)
+            return no_data(term, country, admin1)
 
         # YES Google trend
         else:
@@ -86,8 +86,8 @@ def get_trend(term, country, state):
             trend_df["country"] = country
             trend_df["search_term"] = f"{term}"
 
-            if state:
-                trend_df["admin1"] = state
+            if admin1:
+                trend_df["admin1"] = admin1
 
             else:
                 trend_df["admin1"] = np.nan
@@ -115,14 +115,14 @@ def get_trend(term, country, state):
 
             return df
 
-    # bad user country/state inputs
+    # bad user country/admin1 inputs
     else:
-        print(f"\nFor country:'{country}' state:'{state}'")
+        print(f"\nFor country:'{country}' admin1:'{admin1}'")
         print(
-            "Invalid input:\n  Reference 'country_admin1.csv' for country/state names.\n  Note: Input parameters with spaces must be in quotes.\n"
+            "Invalid input:\n  Reference 'country_admin1.csv' for country/admin1 names.\n  Note: Input parameters with spaces must be in quotes.\n"
         )
 
-        return no_data(term, country, state)
+        return no_data(term, country, admin1)
 
 
 if __name__ == "__main__":
@@ -137,11 +137,11 @@ if __name__ == "__main__":
         help='Required: Country of interest: "Ethiopia"',
     )
     parser.add_argument(
-        "--state",
-        dest="state",
+        "--admin1",
+        dest="admin1",
         type=str,
         default=None,
-        help='Optional: State/province/woreda of interest: "Addis Ababa"',
+        help='Optional: admin1/province/woreda of interest: "Addis Ababa"',
     )
     parser.add_argument(
         "--output",
@@ -154,9 +154,9 @@ if __name__ == "__main__":
 
     term = args.term
     country = args.country
-    state = args.state
+    admin1 = args.admin1
     output = args.output
-    trend = get_trend(term, country, state)
+    trend = get_trend(term, country, admin1)
 
     if isinstance(trend, pd.DataFrame):
         trend.to_csv(args.output, index=False)
