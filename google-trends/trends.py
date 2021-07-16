@@ -80,9 +80,8 @@ def get_trend(term, country, admin1):
         # YES Google trend
         else:
             trend_df = trend_df.reset_index()
-            trend_df = trend_df.rename(columns={"date": "time", term: "value"})
+            trend_df = trend_df.rename(columns={"date": "time", term: "trend_level"})
             trend_df = trend_df.drop(columns="isPartial")
-            trend_df["feature"] = "trend level"
             trend_df["country"] = country
             trend_df["search_term"] = f"{term}"
 
@@ -107,8 +106,7 @@ def get_trend(term, country, admin1):
                     "timestamp",
                     "country",
                     "admin1",
-                    "feature",
-                    "value",
+                    "trend_level",
                     "search_term",
                 ],
             )
