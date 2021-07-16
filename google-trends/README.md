@@ -25,10 +25,10 @@ Will yield a `.csv` file called `teff.csv` containing Google Trend information f
 
 | timestamp   | country   |admin1          | feature     | value | search_term |
 |-------------|-----------|----------------|-------------|-------|-------------|
-| 1451203200  | Ethiopia  | Oromia Region  | trend level | 1     | teff        | 
-| 1451808000  | Ethiopia  | Oromia Region  | trend level | 4     | teff        | 
-| 1452412800  | Ethiopia  | Oromia Region  | trend level | 4     | teff        | 
-| 1453017600  | Ethiopia  | Oromia Region  | trend level | 8     | teff        | 
+| 1451203200  | Ethiopia  | Addis Ababa    | trend level | 1     | teff        | 
+| 1451808000  | Ethiopia  | Addis Ababa    | trend level | 4     | teff        | 
+| 1452412800  | Ethiopia  | Addis Ababa    | trend level | 4     | teff        | 
+| 1453017600  | Ethiopia  | Addis Ababa    | trend level | 8     | teff        | 
 
 Where:
 
