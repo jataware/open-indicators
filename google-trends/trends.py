@@ -92,6 +92,7 @@ def get_trend(term, country, admin1):
 
             # Convert to epoch time
             trend_df["timestamp"] = trend_df.time.apply(lambda x: iso_to_epoch(str(x)))
+            trend_df["timestamp"] = trend_df["timestamp"].apply(lambda x: int(x)*1000)
             trend_df = trend_df.drop(columns="time")
 
             # reorder/rename columns and keep ISO time for comparison
