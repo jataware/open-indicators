@@ -54,8 +54,7 @@ def no_data(term, country, admin1):
     empty_dict = {'timestamp': [round(time()*1000)],
                   'country': [ctry],
                   'admin1': [admin1],
-                  'feature': ['trend level'],
-                  'value': [np.nan],
+                  'trend_level': [np.nan],
                   'search_term':[f'{term}']
                  }
 
